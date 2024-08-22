@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /private/
+Disallow: /admin/
+
+Sitemap: https://endocrinolog.uz/sitemap.xml
