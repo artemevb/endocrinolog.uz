@@ -139,7 +139,7 @@ export default function ContAddress() {
                             >
                                 {loading ? "Отправляется" : "Записаться"}
                             </button>
-                            <a href="https://t.me/+998933805505" target="_blank" 
+                            <a href="https://t.me/endo_krinolog" target="_blank" 
                                onClick={() => handleButtonClick('TELEGRAM')}
                                className="w-full border border-[#3FAEFF] text-[#3FAEFF] py-3 rounded-lg flex items-center justify-center text-[14px] font-bold mdx:text-[16px] mdx:flex-1 mt-4 mdx:mt-0 mdx:max-w-[202px]">
                                 Telegram
@@ -151,7 +151,7 @@ export default function ContAddress() {
                                     className="max-mdx:w-[24px] max-mdx:h-[24px] w-[28px] h-[28px] ml-2"
                                 />
                             </a>
-                            <a href="tel:+998933805505" 
+                            <a href="tel:+998971407887"
                                onClick={() => handleButtonClick('CALL')}
                                className="w-full border border-[#3FAEFF] text-[#3FAEFF] py-3 rounded-lg flex items-center justify-center text-[14px] font-bold mdx:text-[16px] mdx:flex-1 mt-4 mdx:mt-0 mdx:max-w-[202px]">
                                 Позвонить

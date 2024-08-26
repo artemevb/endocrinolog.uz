@@ -53,7 +53,7 @@ export default function Footer() {
           <div className="flex items-start flex-col gap-3">
             <h2 className="text-[16px] mdx:text-[22px] font-bold text-[#252324]">Социальные сети</h2>
             <div className="flex flex-row gap-4">
-              <a href="https://t.me/+998933805505" target="_blank" onClick={() => handleButtonClick('TELEGRAM_FOOTER')}>
+              <a href="https://t.me/endo_krinolog" target="_blank" onClick={() => handleButtonClick('TELEGRAM_FOOTER')}>
                 <Image
                   src={telegram}
                   width={40}
