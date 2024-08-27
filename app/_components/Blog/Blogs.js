@@ -82,8 +82,8 @@ export default function Blogs() {
     useEffect(() => {
         const handleResize = () => {
             const updatedReviews = reviews.map((review) => {
-                const maxLengthDescription = window.innerWidth >= 1000 ? 57 : 69; // проверка ширины экрана для описания
-                const maxLengthTitle = 54; // ограничение на количество символов в заголовке
+                const maxLengthDescription = window.innerWidth >= 1000 ? 57 : 69;
+                const maxLengthTitle = 54;
 
                 return {
                     ...review,

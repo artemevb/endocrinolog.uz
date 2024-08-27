@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRouter } from "next/navigation"; // Updated to the correct import for useRouter in the client
+import { useRouter } from "next/navigation";
 import Arrow_back from "@/public/svg/arrow_back.svg";
 
 export default function Back() {
