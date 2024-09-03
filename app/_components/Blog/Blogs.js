@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import arrow_blue from "@/public/svg/tools/arrow-blue.svg";
 import blog1 from "@/public/images/blogs/card1.png";
@@ -108,7 +107,6 @@ export default function Blogs() {
         };
     }, []);
 
-
     const visibleReviews = showAll ? trimmedReviews : trimmedReviews.slice(0, 12);
 
     return (
@@ -118,7 +116,7 @@ export default function Blogs() {
             </h2>
             <div className="grid grid-cols-1 mdx:grid-cols-2 xl:grid-cols-4 gap-5 mt-7 ">
                 {visibleReviews.map((review, index) => (
-                    <div className="flex flex-col justify-between h-full border p-4  rounded-[20px]">
+                    <div key={index} className="flex flex-col justify-between h-full border p-4 rounded-[20px]">
                         <div className="relative w-full pb-[56.25%]"> 
                             <Image
                                 src={review.imageSrc}
@@ -134,8 +132,7 @@ export default function Blogs() {
                         <p className="text-[14px] mdl:text-[18px] text-[#737373] mt-2 lh flex-grow">
                             {review.description}
                         </p>
-                        <a href="https://t.me/endo_krinolog" target="_blank">
-                            {/* <Link href={`/blog/${visibleReviews.link}`} key={index}> */}
+                        <a href="https://t.me/endo_krinolog" target="_blank" rel="noopener noreferrer">
                             <div className="flex items-center mt-4">
                                 <button className="text-[16px] mdx:text-[20px] font-bold text-[#3FAEFF]">
                                     Полная статья
@@ -148,7 +145,6 @@ export default function Blogs() {
                                     className="w-[21px] h-auto ml-2"
                                 />
                             </div>
-                            {/* </Link> */}
                         </a>
                     </div>
                 ))}
@@ -157,13 +153,12 @@ export default function Blogs() {
                 <div className="text-center mt-8">
                     <button
                         className="text-[16px] rounded-xl mdx:text-[20px] font-bold text-[#3FAEFF] border border-[#3FAEFF] px-[74px] py-[12px]"
-                        onClick={() => setShowAll(true)}
+                        onClick={() => window.location.href = "https://t.me/endo_krinolog"}
                     >
-                        Загрузить всё
+                        Показать всё
                     </button>
                 </div>
             )}
         </div>
-
     );
 }
