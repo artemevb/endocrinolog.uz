@@ -37,8 +37,8 @@ export default function Skills() {
         <div className="flex justify-center mt-2 mdx:hidden xl:block">
           <Image
             src={doc_blue}
-            height={2000}
-            width={2600}
+            height={1000}
+            width={1000}
             alt="Doc Blue"
             className="w-full h-auto xl:max-h-[570px] xl:max-w-[420px]"
           />
