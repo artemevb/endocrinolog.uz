@@ -89,7 +89,7 @@ export default function Footer() {
             <p className="w-full max-mdx:max-w-[150px] text-[#808080]">
               2024 © Азиза Шахзадэевна. Все права защищены
             </p>
-            <a href="https://result-me.uz" target="_blank">
+            <a href="https://result-me.uz/api/redirect?from=ZW5kb2NyaW5vbG9n" target="_blank">
               <Image
                 src={resultLogo}
                 width={500}
