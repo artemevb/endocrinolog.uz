@@ -13,42 +13,61 @@ export default function ContAddress() {
         phoneNum: "",
         comment: "",
     });
+    const [errors, setErrors] = useState({});
     const [loading, setLoading] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleSave = () => {
-        setLoading(true);
-        fetch('https://endocrinolog.uz/api/comment/create', {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(values)
-        })
-            .then(response => {
-                if (response.ok) {
-                    return response;
-                } else {
-                    throw new Error(`Server responded with status ${response.status}`);
-                }
+        // Валидация полей
+        const newErrors = {};
+        if (!values.fullName.trim()) {
+            newErrors.fullName = 'Пожалуйста, заполните это поле';
+        }
+        if (!values.phoneNum.trim()) {
+            newErrors.phoneNum = 'Пожалуйста, заполните это поле';
+        }
+        if (!values.comment.trim()) {
+            newErrors.comment = 'Пожалуйста, заполните это поле';
+        }
+
+        if (Object.keys(newErrors).length > 0) {
+            setErrors(newErrors);
+            // Запрос не отправляется, так как есть ошибки
+        } else {
+            setErrors({});
+            setLoading(true);
+            fetch('https://endocrinolog.uz/api/comment/create', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(values)
             })
-            .then(data => {
-                console.log(data);
-                setValues({
-                    fullName: "",
-                    phoneNum: "",
-                    comment: "",
+                .then(response => {
+                    if (response.ok) {
+                        return response;
+                    } else {
+                        throw new Error(`Server responded with status ${response.status}`);
+                    }
+                })
+                .then(data => {
+                    console.log(data);
+                    setValues({
+                        fullName: "",
+                        phoneNum: "",
+                        comment: "",
+                    });
+                    setLoading(false);
+                    setIsModalOpen(true); // Открыть модальное окно при успехе
+                    // Отправка клика для кнопки SIGN_UP
+                    handleButtonClick('SIGN_UP');
+                })
+                .catch(e => {
+                    console.error("Error in application", e);
+                    alert("Что-то пошло не так");
+                    setLoading(false);
                 });
-                setLoading(false);
-                setIsModalOpen(true); // Open the modal on success
-                // Отправка клика для кнопки SIGN_UP
-                handleButtonClick('SIGN_UP');
-            })
-            .catch(e => {
-                console.error("Error in application", e);
-                alert("Something went wrong");
-                setLoading(false);
-            });
+        }
     };
 
     const handleButtonClick = (buttonType) => {
@@ -70,6 +89,11 @@ export default function ContAddress() {
         setValues({
             ...values,
             [e.target.name]: e.target.value,
+        });
+        // Очистка ошибки при изменении поля
+        setErrors({
+            ...errors,
+            [e.target.name]: ''
         });
     };
 
@@ -101,6 +125,7 @@ export default function ContAddress() {
                     </div>
                     <div className="mt-6">
                         <div className="mb-4">
+                            {errors.fullName && <div className="text-red-500">{errors.fullName}</div>}
                             <input
                                 type="text"
                                 name="fullName"
@@ -111,6 +136,7 @@ export default function ContAddress() {
                             />
                         </div>
                         <div className="mb-4">
+                            {errors.phoneNum && <div className="text-red-500">{errors.phoneNum}</div>}
                             <input
                                 type="text"
                                 name="phoneNum"
@@ -121,6 +147,7 @@ export default function ContAddress() {
                             />
                         </div>
                         <div className="mb-4">
+                            {errors.comment && <div className="text-red-500">{errors.comment}</div>}
                             <textarea
                                 name="comment"
                                 value={values.comment}
@@ -131,10 +158,7 @@ export default function ContAddress() {
                         </div>
                         <div className="mdx:flex mdx:space-x-4 pb-[10px]">
                             <button
-                                onClick={() => {
-                                    setLoading(true);
-                                    handleSave();
-                                }}
+                                onClick={handleSave}
                                 className="w-full bg-[#3FAEFF] text-white py-3 rounded-lg hover:bg-[#3FAEFF] text-[14px] font-bold mdx:text-[16px] mdx:flex-1 mdx:max-w-[202px] flex items-center justify-center"
                             >
                                 {loading ? "Отправляется" : "Записаться"}
