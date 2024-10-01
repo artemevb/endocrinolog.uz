@@ -11,49 +11,52 @@ export const metadata = {
     default: "Азиза Шахзадэевна - Эндокринолог в Ташкенте, Узбекистан"
   },
   description: "Эндокринолог высшей категории в Ташкенте, Узбекистан, специализируется на лечении диабета, заболеваний щитовидной железы и гормональных нарушений.",
-  keywords: [
-    "эндокринолог Ташкент",
-    "лечение диабета Узбекистан",
-    "специалист по щитовидной железе Ташкент",
-    "гормональные нарушения",
-    "Азиза Шахзодевна эндокринолог",
-    "медицинский специалист Узбекистан",
-    "лечение щитовидной железы"
-  ],
-  icons: {
-    icon: [
-      '/favicon.ico'
+  openGraph: {
+    type: 'website',
+    locale: 'ru_RU',
+    url: 'https://endocrinolog.uz',
+    title: 'Азиза Шахзадэевна - Эндокринолог в Ташкенте, Узбекистан',
+    description: "Эндокринолог высшей категории в Ташкенте, Узбекистан, специализируется на лечении диабета, заболеваний щитовидной железы и гормональных нарушений.",
+    images: [
+      {
+        url: 'https://endocrinolog.uz/opGraph.png',
+        width: 1200,
+        height: 630,
+        alt: 'Азиза Шахзадэевна - Эндокринолог',
+      },
     ],
-    apple: [
-      '/apple-touch-icon.png',
-    ],
-    shortcut: [
-      '/apple-touch-icon.png'
-    ]
+    site_name: 'Endocrinolog.uz',
   },
-  manifest: '/site.webmanifest'
-}
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Азиза Шахзадэевна - Эндокринолог в Ташкенте, Узбекистан',
+    description: "Эндокринолог высшей категории в Ташкенте, Узбекистан, специализируется на лечении диабета, заболеваний щитовидной железы и гормональных нарушений.",
+    images: ['https://endocrinolog.uz/opGraph.png'],
+  },
+  alternates: {
+    canonical: 'https://endocrinolog.uz',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+    shortcut: '/apple-touch-icon.png',
+  },
+  manifest: '/site.webmanifest',
+};
 
 export default function RootLayout({ children }) {
   return (
     <html lang="ru">
-      <head>
-        <meta property="og:image" content="https://endocrinolog.uz/opGraph.png" />
-        <meta property="og:url" content="https://endocrinolog.uz" />
-        <meta property="og:image:secure_url" content="https://endocrinolog.uz/opGraph.png" />
-        <meta property="og:image:type" content="image/png" />
-        <meta property="og:image:width" content="100" />
-        <meta property="og:image:height" content="100" />
-        <meta name="description" content="Эндокринолог высшей категории в Ташкенте, Узбекистан, специализируется на лечении диабета, заболеваний щитовидной железы и гормональных нарушений." />
-        <meta name="keywords" content="эндокринолог Ташкент, лечение диабета Узбекистан, специалист по щитовидной железе Ташкент, гормональные нарушения, Азиза Шахзадэевна эндокринолог, медицинский специалист Узбекистан, лечение щитовидной железы" />
-        <meta name="author" content="Азиза Шахзадэевна" />
-      </head>
       <body>
         <Header />
         <main className="w-full bg-white relative">{children}</main>
         <Footer />
 
-        {/* Google Tag Manager (gtag.js) */}
+        {/* Google Analytics */}
         <Script async src="https://www.googletagmanager.com/gtag/js?id=AW-11414753579"></Script>
         <Script id="google-analytics-1">
           {`
@@ -64,7 +67,7 @@ export default function RootLayout({ children }) {
           `}
         </Script>
 
-        {/* Additional Google Tag */}
+        {/* Additional Google Analytics */}
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-LM1W5DLE7P"></Script>
         <Script id="google-analytics-2">
           {`
