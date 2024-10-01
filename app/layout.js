@@ -8,7 +8,7 @@ const Header = dynamic(() => import('@/app/_components/Header/Header'), { ssr: t
 export const metadata = {
   title: {
     template: "%s",
-    default: "Азиза Шахзодевна - Эндокринолог в Ташкенте, Узбекистан"
+    default: "Азиза Шахзадэевна - Эндокринолог в Ташкенте, Узбекистан"
   },
   description: "Эндокринолог высшей категории в Ташкенте, Узбекистан, специализируется на лечении диабета, заболеваний щитовидной железы и гормональных нарушений.",
   keywords: [
@@ -45,8 +45,8 @@ export default function RootLayout({ children }) {
         <meta property="og:image:width" content="100" />
         <meta property="og:image:height" content="100" />
         <meta name="description" content="Эндокринолог высшей категории в Ташкенте, Узбекистан, специализируется на лечении диабета, заболеваний щитовидной железы и гормональных нарушений." />
-        <meta name="keywords" content="эндокринолог Ташкент, лечение диабета Узбекистан, специалист по щитовидной железе Ташкент, гормональные нарушения, Азиза Шахзодевна эндокринолог, медицинский специалист Узбекистан, лечение щитовидной железы" />
-        <meta name="author" content="Азиза Шахзодевна" />
+        <meta name="keywords" content="эндокринолог Ташкент, лечение диабета Узбекистан, специалист по щитовидной железе Ташкент, гормональные нарушения, Азиза Шахзадэевна эндокринолог, медицинский специалист Узбекистан, лечение щитовидной железы" />
+        <meta name="author" content="Азиза Шахзадэевна" />
         {/* Google tag (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11414753579"></script>
         <script dangerouslySetInnerHTML={{
@@ -57,6 +57,40 @@ export default function RootLayout({ children }) {
             gtag('config', 'AW-11414753579');
           `,
         }} />
+        {/* Additional Google tag */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-LM1W5DLE7P"></script>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-LM1W5DLE7P');
+          `,
+        }} />
+        {/* Yandex.Metrika counter */}
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {
+              if (document.scripts[j].src === r) { return; }
+            }
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+            ym(98512559, "init", {
+              clickmap:true,
+              trackLinks:true,
+              accurateTrackBounce:true,
+              webvisor:true
+            });
+          `,
+        }} />
+        <noscript>
+          <div>
+            <img src="https://mc.yandex.ru/watch/98512559" style={{ position: "absolute", left: "-9999px" }} alt="" />
+          </div>
+        </noscript>
       </Head>
       <body>
         <Header />
@@ -66,3 +100,4 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
