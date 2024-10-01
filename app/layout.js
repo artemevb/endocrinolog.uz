@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
-import Head from 'next/head';
 import "@/app/_styles/globals.css";
 import Footer from "@/app/_components/Footer/Footer";
+import Script from 'next/script';
 
 const Header = dynamic(() => import('@/app/_components/Header/Header'), { ssr: true });
 
@@ -37,7 +37,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ru">
-      <Head>
+      <head>
         <meta property="og:image" content="https://endocrinolog.uz/opGraph.png" />
         <meta property="og:url" content="https://endocrinolog.uz" />
         <meta property="og:image:secure_url" content="https://endocrinolog.uz/opGraph.png" />
@@ -47,29 +47,37 @@ export default function RootLayout({ children }) {
         <meta name="description" content="Эндокринолог высшей категории в Ташкенте, Узбекистан, специализируется на лечении диабета, заболеваний щитовидной железы и гормональных нарушений." />
         <meta name="keywords" content="эндокринолог Ташкент, лечение диабета Узбекистан, специалист по щитовидной железе Ташкент, гормональные нарушения, Азиза Шахзадэевна эндокринолог, медицинский специалист Узбекистан, лечение щитовидной железы" />
         <meta name="author" content="Азиза Шахзадэевна" />
-        {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11414753579"></script>
-        <script dangerouslySetInnerHTML={{
-          __html: `
+      </head>
+      <body>
+        <Header />
+        <main className="w-full bg-white relative">{children}</main>
+        <Footer />
+
+        {/* Google Tag Manager (gtag.js) */}
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=AW-11414753579"></Script>
+        <Script id="google-analytics-1">
+          {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'AW-11414753579');
-          `,
-        }} />
-        {/* Additional Google tag */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-LM1W5DLE7P"></script>
-        <script dangerouslySetInnerHTML={{
-          __html: `
+          `}
+        </Script>
+
+        {/* Additional Google Tag */}
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-LM1W5DLE7P"></Script>
+        <Script id="google-analytics-2">
+          {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-LM1W5DLE7P');
-          `,
-        }} />
+          `}
+        </Script>
+
         {/* Yandex.Metrika counter */}
-        <script dangerouslySetInnerHTML={{
-          __html: `
+        <Script id="yandex-metrika">
+          {`
             (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
             m[i].l=1*new Date();
             for (var j = 0; j < document.scripts.length; j++) {
@@ -84,20 +92,14 @@ export default function RootLayout({ children }) {
               accurateTrackBounce:true,
               webvisor:true
             });
-          `,
-        }} />
+          `}
+        </Script>
         <noscript>
           <div>
             <img src="https://mc.yandex.ru/watch/98512559" style={{ position: "absolute", left: "-9999px" }} alt="" />
           </div>
         </noscript>
-      </Head>
-      <body>
-        <Header />
-        <main className="w-full bg-white relative">{children}</main>
-        <Footer />
       </body>
     </html>
   );
 }
-
