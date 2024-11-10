@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import Doc from "@/public/images/face/Doc.png";
-import Doc_bg from "@/public/images/face/Doc_bg.png";
+import Doc from "@/public/images/face/Doc.webp";
+import Doc_bg from "@/public/images/face/Doc_bg.webp";
 import Telegram from "@/public/svg/icons/telegram_blue.svg";
 import Phone from "@/public/svg/tools/phone-blue.png";
 import Complete from "../Modals/Complete";
@@ -111,8 +111,9 @@ export default function ContAddress() {
                     <Image
                         src={Doc_bg}
                         height={1000}
+                        quality={100}
                         width={1000}
-                        alt={"Doctor"}
+                        alt={"Doctor photo"}
                         className="w-full h-auto rounded-2xl bg-[#3FAEFF] hidden mdx:block xl:hidden"
                     />
                 </div>

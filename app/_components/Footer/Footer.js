@@ -101,7 +101,10 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2997.356922095781!2d69.27975407587405!3d41.30109837131091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8ad3dc7840d5%3A0x6cc193476abb6d8!2z0L_RgNC-0YHQv9C10LrRgiDQkNC80LjRgNCwINCi0LXQvNGD0YDQsCAzOSwgMTAwMDYxLCDQotCw0YjQutC10L3RgiwgVGFzaGtlbnQsINCj0LfQsdC10LrQuNGB0YLQsNC9!5e0!3m2!1sru!2s!4v1723533757595!5m2!1sru!2s" width="100%" height="450" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade" style={{ border: 0 }} className="xl:h-[500px]"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2997.356922095781!2d69.27975407587405!3d41.30109837131091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8ad3dc7840d5%3A0x6cc193476abb6d8!2z0L_RgNC-0YHQv9C10LrRgiDQkNC80LjRgNCwINCi0LXQvNGD0YDQsCAzOSwgMTAwMDYxLCDQotCw0YjQutC10L3RgiwgVGFzaGtlbnQsINCj0LfQsdC10LrQuNGB0YLQsNC9!5e0!3m2!1sru!2s!4v1723533757595!5m2!1sru!2s" width="100%" height="450" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade" style={{ border: 0 }} className="xl:h-[500px]"
+      title="Location Map of Aziza Shaxzadeevna">
+      
+      </iframe>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Back from "@/app/_components/Blog/Back";
-import Doc from "@/public/images/face/Doc_width.png";
+import Doc from "@/public/images/face/Doc_width.webp";
 import Doc2 from "@/public/images/face/Vstavka.png";
 
 import telegram from "@/public/svg/icons/telegram-blue.svg";
@@ -60,8 +60,9 @@ export default function ContentMain() {
                         <Image
                             src={Doc}
                             height={1000}
+                            quality={100}
                             width={1100}
-                            alt={'Doctor'}
+                            alt={'Doctor photo'}
                             className="w-full h-auto rounded-lg"
                         />
                     </div>

@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image";
-import Doc from "@/public/images/aboutUs/doc.png";
+import Doc from "@/public/images/aboutUs/doc.webp";
 
 export default function AboutUs() {
 
@@ -15,15 +15,15 @@ export default function AboutUs() {
     fetch(`https://endocrinolog.uz/api/counter/add?button=${buttonType}`, {
       method: "POST",
     })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`Server responded with status ${response.status}`);
-      }
-      console.log(`Button ${buttonType} clicked`);
-    })
-    .catch(e => {
-      console.error(`Error logging button click for ${buttonType}`, e);
-    });
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Server responded with status ${response.status}`);
+        }
+        console.log(`Button ${buttonType} clicked`);
+      })
+      .catch(e => {
+        console.error(`Error logging button click for ${buttonType}`, e);
+      });
   };
 
   const handleClick = () => {
@@ -43,7 +43,7 @@ export default function AboutUs() {
           </p>
           <div className="flex justify-center xl:justify-start">
             <button className="rounded-xl bg-[#3FAEFF] text-[#fff] px-[36px] py-[16px] text-[14px] mdx:text-[16px] text-base mdx:px-[25px] mt-[40px] font-bold"
-            onClick={handleClick}>
+              onClick={handleClick}>
               Записаться на прием
             </button>
           </div>
@@ -53,9 +53,12 @@ export default function AboutUs() {
             src={Doc}
             height={1500}
             width={1500}
-            alt={`Doctor`}
+            quality={100}  
+            alt="Doctor photo"
+            priority={true}  
             className="w-full h-full"
           />
+
         </div>
       </div>
     </div>
