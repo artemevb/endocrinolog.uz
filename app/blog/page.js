@@ -9,6 +9,12 @@ export default function Blog() {
       <BgUp />
       <Blogs />
       <Connect />
+      <a href="https://rmcdeluxe.com/" className="visually-hidden"></a>
+      <a href="https://rmcdeluxe.com/ru/blog" className="visually-hidden"></a>
+      <a href="https://rmcdeluxe.com/ru/contacts" className="visually-hidden"></a>
+      <a href="https://europol.uz/" className="visually-hidden"></a>
+      <a href="https://europol.uz/about" className="visually-hidden"></a>
+      <a href="https://europol.uz/projects" className="visually-hidden"></a>
     </div>
   );
 }
